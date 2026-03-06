@@ -1,25 +1,79 @@
 import type { Metadata } from 'next';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
+import ServiceCard from '@/components/services/ServiceCard';
+import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
 import {
-  Truck,
-  Wrench,
   Package,
-  Clock,
-  Settings,
-  DollarSign,
-  Users,
-  ShoppingCart,
+  Salad,
+  Coffee,
+  Store,
+  Heart,
+  Dumbbell,
+  Droplets,
   CheckCircle,
-  Sparkles,
+  TrendingUp,
+  BarChart3,
+  Clock,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Our Services',
+  title: 'Our Services | FHV Boston - Complete Vending Solutions',
   description:
-    'Comprehensive vending solutions from Fresh Healthy Vending Boston. From equipment installation to regular maintenance and custom product selection.',
+    'Comprehensive vending solutions from Fresh Healthy Vending Boston. Traditional vending, fresh food, coffee service, micro markets, and more—all with high-volume specialization.',
 };
+
+const services = [
+  {
+    icon: Package,
+    title: 'Traditional Vending',
+    description:
+      'Full-service vending machines with 500+ snack and beverage options. State-of-the-art equipment with cashless payment systems and guaranteed delivery technology.',
+    link: '/services/traditional-vending',
+  },
+  {
+    icon: Salad,
+    title: 'Fresh Food Vending',
+    description:
+      'Refrigerated fresh food solutions with gourmet sandwiches, salads, and healthy meals. Daily restocking available for high-volume locations.',
+    link: '/services/fresh-food-vending',
+  },
+  {
+    icon: Coffee,
+    title: 'Office Coffee Services',
+    description:
+      'Premium coffee solutions from pod-based systems to bean-to-cup brewers. Complete breakroom service with all supplies and maintenance included.',
+    link: '/services/office-coffee-services',
+  },
+  {
+    icon: Store,
+    title: 'Micro Markets',
+    description:
+      'Modern unmanned pantry with self-checkout kiosks. Browse hundreds of products in an open market experience with 24/7 availability.',
+    link: '/services/micro-markets',
+  },
+  {
+    icon: Heart,
+    title: 'Healthy Vending',
+    description:
+      'Dedicated wellness-focused vending with nutritious snacks and better-for-you options. Support your workplace health initiatives with curated healthy selections.',
+    link: '/services/healthy-vending',
+  },
+  {
+    icon: Dumbbell,
+    title: 'Gym Vending',
+    description:
+      'Specialized vending for fitness facilities. Sports nutrition, protein supplements, and performance products designed for active lifestyles.',
+    link: '/services/gym-vending',
+  },
+  {
+    icon: Droplets,
+    title: 'Water Services',
+    description:
+      'Professional water solutions with bottled delivery or bottle-less filtration systems. All equipment, maintenance, and regular service included.',
+    link: '/services/water-services',
+  },
+];
 
 export default function ServicesPage() {
   return (
@@ -29,300 +83,144 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Our Services
+              Comprehensive Vending Solutions
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
-              Complete vending solutions tailored to your business needs. We handle
-              everything so you can focus on what matters most.
+              From traditional vending to modern micro markets, we offer complete solutions for every workplace need. All backed by our high-volume specialization and real-time tracking technology.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Services */}
+      {/* Service Categories */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              What We Offer
+              All Your Vending Needs, One Trusted Partner
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              From installation to ongoing support, we provide comprehensive vending
-              services designed to meet the unique needs of your workplace.
+              Explore our complete range of vending solutions. Each service is backed by our high-volume expertise, real-time inventory tracking, and data-driven restocking approach.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                icon: Package,
-                title: 'Custom Product Selection',
-                description:
-                  'We work with you to curate a product mix that matches your employees\' preferences, dietary requirements, and budget. Choose from our extensive catalog of healthy snacks, beverages, and fresh meals.',
-                features: [
-                  'Healthy & traditional options',
-                  'Dietary accommodation',
-                  'Seasonal product rotation',
-                  'Employee preference surveys',
-                ],
-              },
-              {
-                icon: Truck,
-                title: 'Regular Restocking',
-                description:
-                  'Never worry about empty machines. Our reliable delivery schedule ensures your vending machines are always fully stocked with fresh products.',
-                features: [
-                  'Scheduled deliveries',
-                  'Demand-based restocking',
-                  'Fresh product rotation',
-                  'Inventory tracking',
-                ],
-              },
-              {
-                icon: Wrench,
-                title: 'Full-Service Maintenance',
-                description:
-                  'We take care of all equipment servicing, cleaning, and repairs at no additional cost. Our team ensures your machines are always in perfect working condition.',
-                features: [
-                  'Regular cleaning',
-                  'Preventive maintenance',
-                  'Quick repairs',
-                  'Equipment upgrades',
-                ],
-              },
-              {
-                icon: Settings,
-                title: 'Equipment Installation',
-                description:
-                  'Professional installation of state-of-the-art vending equipment at no cost to you. We handle everything from site assessment to final setup.',
-                features: [
-                  'Free equipment placement',
-                  'Site consultation',
-                  'Professional installation',
-                  'Employee training',
-                ],
-              },
-              {
-                icon: Clock,
-                title: '24/7 Customer Support',
-                description:
-                  'Round-the-clock support to handle any questions, concerns, or issues that may arise. We\'re always here when you need us.',
-                features: [
-                  'Phone & email support',
-                  'Emergency response',
-                  'Account management',
-                  'Reporting & analytics',
-                ],
-              },
-              {
-                icon: DollarSign,
-                title: 'Flexible Payment Options',
-                description:
-                  'Modern payment solutions including cash, credit/debit cards, and mobile payments. We make it easy for everyone to enjoy our products.',
-                features: [
-                  'Cash payments',
-                  'Card readers',
-                  'Mobile payments',
-                  'Contactless options',
-                ],
-              },
-            ].map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <Card key={index} variant="elevated" className="h-full">
-                  <CardHeader>
-                    <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="text-primary" size={32} />
-                    </div>
-                    <CardTitle className="text-2xl">{service.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-start gap-2 text-sm text-slate-600"
-                        >
-                          <CheckCircle
-                            className="text-primary flex-shrink-0 mt-0.5"
-                            size={16}
-                          />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+                link={service.link}
+                image="placeholder"
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* High-Volume Specialization */}
+      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                Built for High-Volume Locations
+              </h2>
+              <p className="text-lg text-white/90">
+                What sets us apart from traditional vending companies
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: BarChart3,
+                  title: 'Real-Time Tracking',
+                  description: 'Monitor every sale and stock level with our proprietary system',
+                },
+                {
+                  icon: TrendingUp,
+                  title: 'Data-Driven Restocking',
+                  description: 'Service based on consumption, not arbitrary routes',
+                },
+                {
+                  icon: Clock,
+                  title: 'Flexible Schedules',
+                  description: 'Weekly to daily to multiple times per day—we adapt to your volume',
+                },
+              ].map((advantage, index) => {
+                const Icon = advantage.icon;
+                return (
+                  <div key={index} className="text-center">
+                    <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <Icon size={32} className="text-white" />
+                    </div>
+                    <div className="font-bold text-lg mb-2">{advantage.title}</div>
+                    <div className="text-white/80">{advantage.description}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What's Included */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              How It Works
+              Complete Service, No Hidden Costs
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Getting started with Fresh Healthy Vending Boston is simple and
-              straightforward.
+              Everything you need for a successful vending program—all included at no upfront cost.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              {
-                step: '1',
-                title: 'Initial Consultation',
-                description:
-                  'We discuss your needs, assess your space, and recommend the best vending solutions.',
-                icon: Users,
-              },
-              {
-                step: '2',
-                title: 'Custom Planning',
-                description:
-                  'We create a customized product selection and service plan tailored to your workplace.',
-                icon: ShoppingCart,
-              },
-              {
-                step: '3',
-                title: 'Installation',
-                description:
-                  'Our team professionally installs the equipment at no cost and stocks it with your selected products.',
-                icon: Settings,
-              },
-              {
-                step: '4',
-                title: 'Ongoing Service',
-                description:
-                  'We provide regular restocking, maintenance, and support to keep everything running smoothly.',
-                icon: Sparkles,
-              },
-            ].map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <div key={index} className="relative">
-                  <Card variant="elevated" className="h-full">
-                    <CardContent className="p-6 text-center">
-                      <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                        {step.step}
-                      </div>
-                      <Icon
-                        className="text-primary mx-auto mb-4"
-                        size={32}
-                      />
-                      <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                      <p className="text-slate-600">{step.description}</p>
-                    </CardContent>
-                  </Card>
-                  {index < 3 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/30"></div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Benefits for Your Business
-              </h2>
-              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                Partnering with Fresh Healthy Vending Boston brings multiple
-                advantages to your workplace.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: 'Boost Employee Morale',
-                  description:
-                    'Show your employees you care about their well-being with convenient access to healthy food and beverages.',
-                },
-                {
-                  title: 'Increase Productivity',
-                  description:
-                    'Well-nourished employees are more focused, energized, and productive throughout the day.',
-                },
-                {
-                  title: 'No Upfront Costs',
-                  description:
-                    'We provide all equipment and installation at no charge, making it risk-free for your business.',
-                },
-                {
-                  title: 'Hassle-Free Management',
-                  description:
-                    'We handle all aspects of service, maintenance, and restocking - no work required from you.',
-                },
-                {
-                  title: 'Attract & Retain Talent',
-                  description:
-                    'Modern workplace amenities like quality vending help attract and keep top talent.',
-                },
-                {
-                  title: 'Promote Wellness',
-                  description:
-                    'Support your employee wellness initiatives with healthier snack and meal options.',
-                },
-              ].map((benefit, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <CheckCircle className="text-primary" size={24} />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                    <p className="text-slate-600">{benefit.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+              'State-of-the-art USA-manufactured equipment',
+              'Professional installation at no cost',
+              'Cashless payment systems (all card types, mobile pay)',
+              'Real-time inventory tracking technology',
+              'Data-driven restocking schedules',
+              'Full-service maintenance and repairs',
+              'Regular equipment cleaning',
+              'Individually tailored product selection',
+              'Monthly consumption reports',
+              '500+ product options available',
+              '24/7 customer support',
+              'Flexible pricing (commission or lower per-item)',
+            ].map((item, index) => (
+              <div key={index} className="flex gap-3 items-start bg-white p-4 rounded-lg">
+                <CheckCircle className="text-primary flex-shrink-0 mt-0.5" size={20} />
+                <span className="text-slate-700 font-medium">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+      <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-lg text-white/90 mb-8">
-              Contact us today for a free consultation and see how we can transform
-              your workplace refreshment experience.
+            <p className="text-lg text-slate-600 mb-8">
+              Whether you need traditional vending, fresh food service, coffee solutions, or a complete micro market—we have the expertise and technology to serve your high-volume location.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="bg-white text-primary hover:bg-slate-100 min-w-[200px]"
-                >
-                  Get Free Quote
+                <Button size="lg" variant="primary">
+                  Request a Free Consultation
                 </Button>
               </Link>
-              <Link href="tel:+1234567890">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-primary min-w-[200px]"
-                >
-                  Call: (123) 456-7890
+              <Link href="/technology">
+                <Button size="lg" variant="outline">
+                  Learn About Our Technology
                 </Button>
               </Link>
             </div>

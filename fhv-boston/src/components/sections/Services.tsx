@@ -1,32 +1,57 @@
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
+import ServiceCard from '@/components/services/ServiceCard';
 import Button from '@/components/ui/Button';
-import { Truck, Wrench, Package, Clock } from 'lucide-react';
+import { Package, Salad, Coffee, Store, Heart, Dumbbell, Droplets } from 'lucide-react';
 
 const services = [
   {
     icon: Package,
-    title: 'Healthy Product Selection',
+    title: 'Traditional Vending',
     description:
-      'Wide variety of nutritious snacks, beverages, and fresh food options tailored to your workplace preferences.',
+      'Full-service vending machines with 500+ snack and beverage options. State-of-the-art equipment with cashless payment systems.',
+    link: '/services/traditional-vending',
   },
   {
-    icon: Truck,
-    title: 'Regular Restocking',
+    icon: Salad,
+    title: 'Fresh Food Vending',
     description:
-      'Reliable delivery schedule ensuring your machines are always fully stocked with fresh products.',
+      'Refrigerated fresh food solutions with gourmet sandwiches, salads, and healthy meals. Daily restocking available for high-volume locations.',
+    link: '/services/fresh-food-vending',
   },
   {
-    icon: Wrench,
-    title: 'Full Maintenance',
+    icon: Coffee,
+    title: 'Office Coffee Services',
     description:
-      'Complete service and maintenance of all equipment at no additional cost to keep everything running smoothly.',
+      'Premium coffee solutions from pod-based systems to bean-to-cup brewers. Complete breakroom service with maintenance included.',
+    link: '/services/office-coffee-services',
   },
   {
-    icon: Clock,
-    title: '24/7 Support',
+    icon: Store,
+    title: 'Micro Markets',
     description:
-      'Round-the-clock customer support to handle any questions or issues that may arise.',
+      'Modern unmanned pantry with self-checkout kiosks. Browse hundreds of products in an open market experience.',
+    link: '/services/micro-markets',
+  },
+  {
+    icon: Heart,
+    title: 'Healthy Vending',
+    description:
+      'Dedicated wellness-focused vending with nutritious snacks and better-for-you options. Support your workplace health initiatives.',
+    link: '/services/healthy-vending',
+  },
+  {
+    icon: Dumbbell,
+    title: 'Gym Vending',
+    description:
+      'Specialized vending for fitness facilities. Sports nutrition, protein supplements, and performance products for active lifestyles.',
+    link: '/services/gym-vending',
+  },
+  {
+    icon: Droplets,
+    title: 'Water Services',
+    description:
+      'Professional water solutions with bottled delivery or bottle-less filtration systems. All equipment and maintenance included.',
+    link: '/services/water-services',
   },
 ];
 
@@ -37,34 +62,24 @@ export default function ServicesSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Our Services
+            Comprehensive Vending Solutions
           </h2>
           <p className="text-lg text-slate-600">
-            Comprehensive vending solutions designed to meet the unique needs of
-            your business. We handle everything so you don&apos;t have to.
+            From traditional vending to modern micro markets, we offer complete solutions for every workplace need. All backed by our high-volume specialization and real-time tracking technology.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <Card key={index} variant="elevated">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="text-primary" size={28} />
-                  </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            );
-          })}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={index}
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              link={service.link}
+            />
+          ))}
         </div>
 
         {/* CTA */}

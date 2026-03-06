@@ -15,22 +15,20 @@ export default function Hero() {
           {/* Left Column - Content */}
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Fresh & Healthy Vending Solutions for{' '}
-              <span className="text-primary">Your Business</span>
+              High-Volume Vending Solutions for{' '}
+              <span className="text-primary">Boston's Busiest Locations</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
-              Elevate your workplace with premium vending services. We provide
-              healthy snacks, beverages, and fresh food options that keep your
-              team energized and productive.
+              Real-time tracking. Data-driven restocking. From once a week to every day—we handle the volume.
             </p>
 
             {/* Key Benefits */}
             <ul className="space-y-4 mb-8">
               {[
-                'High-quality, healthy product selection',
-                'State-of-the-art vending equipment',
-                'Full-service maintenance & restocking',
-                'Customizable options for your workplace',
+                'Specialized in high-volume locations',
+                'Real-time inventory tracking drives restocking',
+                'Data-driven service, not route-based',
+                '500+ product options tailored to your location',
               ].map((benefit, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <CheckCircle className="text-primary flex-shrink-0 mt-1" size={20} />
