@@ -44,14 +44,14 @@ export default function Navigation() {
             return (
               <div
                 key={link.href}
-                className="relative"
+                className="relative group"
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
                 <Link
                   href={link.href}
                   className={cn(
-                    'text-sm font-medium transition-colors hover:text-primary flex items-center gap-1',
+                    'text-sm font-medium transition-colors hover:text-primary flex items-center gap-1 py-2',
                     isActive
                       ? 'text-primary border-b-2 border-primary pb-1'
                       : 'text-foreground'
@@ -65,7 +65,8 @@ export default function Navigation() {
                   )} />
                 </Link>
                 {servicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg border border-border py-2 z-50">
+                  <div className="absolute top-full left-0 pt-2 w-64 z-50">
+                    <div className="bg-white shadow-lg rounded-lg border border-border py-2">
                     {serviceLinks.map((serviceLink) => {
                       const isServiceActive = pathname === serviceLink.href;
                       return (
@@ -83,6 +84,7 @@ export default function Navigation() {
                         </Link>
                       );
                     })}
+                    </div>
                   </div>
                 )}
               </div>

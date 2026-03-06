@@ -12,7 +12,7 @@ import {
   CheckCircle,
   ShoppingCart,
   Scan,
-  Clock24
+  Clock
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -197,7 +197,7 @@ export default function MicroMarketsPage() {
 
             <div className="mt-12 text-center">
               <div className="inline-flex items-center gap-2 bg-white/10 rounded-lg px-6 py-3">
-                <Clock24 className="text-white" size={24} />
+                <Clock className="text-white" size={24} />
                 <span className="text-lg font-medium">Open 24/7 for Your Convenience</span>
               </div>
             </div>
