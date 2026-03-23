@@ -11,7 +11,7 @@ export default function ServiceHero({
   title,
   description,
   icon: Icon,
-  gradient = 'from-slate-900 to-slate-800'
+  gradient = 'from-primary to-primary-dark'
 }: ServiceHeroProps) {
   return (
     <section className={`py-20 bg-gradient-to-br ${gradient} text-white`}>

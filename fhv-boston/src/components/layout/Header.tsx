@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Navigation from './Navigation';
 import { Phone, Mail } from 'lucide-react';
 
@@ -6,7 +7,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 w-full bg-white border-b border-border shadow-sm">
       {/* Top Bar - Contact Info */}
-      <div className="bg-slate-900 text-white py-2">
+      <div className="bg-primary text-white py-2">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-6 text-sm">
             <a
@@ -35,18 +36,17 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 group"
+            className="flex items-center group"
             aria-label="Fresh Healthy Vending Boston - Home"
           >
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:bg-primary-dark transition-colors">
-              <span className="text-white font-bold text-xl">FHV</span>
-            </div>
-            <div className="hidden sm:block">
-              <div className="text-xl font-bold text-foreground">
-                Fresh Healthy Vending
-              </div>
-              <div className="text-sm text-slate-600">Boston</div>
-            </div>
+            <Image
+              src="/fhv-logo.svg"
+              alt="Fresh Healthy Vending Boston"
+              width={140}
+              height={100}
+              className="h-16 w-auto"
+              priority
+            />
           </Link>
 
           {/* Navigation */}
