@@ -14,6 +14,7 @@ import {
   Apple,
   Timer
 } from 'lucide-react';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 
 export const metadata: Metadata = {
   title: 'Fresh Food Vending | FHV Boston - Refrigerated Fresh Meals & Sandwiches',
@@ -21,7 +22,8 @@ export const metadata: Metadata = {
     'Fresh food vending machines with gourmet sandwiches, salads, and healthy meals. High-volume fresh food solutions for busy Boston locations with daily restocking.',
 };
 
-export default function FreshFoodVendingPage() {
+export default async function FreshFoodVendingPage() {
+  const heroImage = await fetchUnsplashImage('fresh salad', 'landscape');
   const features = [
     {
       icon: Refrigerator,
@@ -67,6 +69,8 @@ export default function FreshFoodVendingPage() {
         description="Elevate your workplace dining with refrigerated fresh food vending. Gourmet sandwiches, crisp salads, and nutritious meals—delivered fresh and restocked as often as you need."
         icon={Salad}
         gradient="from-green-900 to-green-800"
+        backgroundImage={heroImage.success && heroImage.data ? heroImage.data.urls.regular : undefined}
+        imageAlt={heroImage.success && heroImage.data ? heroImage.data.alt_description || 'Fresh food vending' : undefined}
       />
 
       {/* Service Overview */}

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { MapPin, CheckCircle, Building2, School, Heart, Dumbbell } from 'lucide-react';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 
 export const metadata: Metadata = {
   title: 'Service Areas | FHV Boston - Greater Boston Vending Services',
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
     'Professional vending services throughout Greater Boston and surrounding areas. Serving offices, schools, healthcare facilities, gyms, and high-volume locations across Massachusetts.',
 };
 
-export default function ServiceAreasPage() {
+export default async function ServiceAreasPage() {
+  const heroImage = await fetchUnsplashImage('boston skyline', 'landscape');
   const locations = [
     'Boston',
     'Cambridge',
@@ -56,16 +58,28 @@ export default function ServiceAreasPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-br from-primary to-primary-dark text-white overflow-hidden">
+        {heroImage.success && heroImage.data && (
+          <>
+            <div className="absolute inset-0">
+              <img
+                src={heroImage.data.urls.regular}
+                alt={heroImage.data.alt_description || 'Boston skyline'}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-85"></div>
+          </>
+        )}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
               <MapPin size={40} className="text-white" />
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Serving Greater Boston
             </h1>
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
               Professional vending services throughout the Greater Boston area and surrounding communities. Wherever you're located, we bring high-volume expertise and data-driven service to your workplace.
             </p>
           </div>

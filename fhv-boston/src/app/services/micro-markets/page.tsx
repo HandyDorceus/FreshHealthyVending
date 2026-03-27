@@ -4,6 +4,7 @@ import ServiceHero from '@/components/services/ServiceHero';
 import HighVolumeCallout from '@/components/services/HighVolumeCallout';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 import {
   Store,
   CreditCard,
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
     'Modern micro market solutions with self-checkout kiosks. Unmanned pantry services for Boston offices with extensive product selection and 24/7 availability.',
 };
 
-export default function MicroMarketsPage() {
+export default async function MicroMarketsPage() {
+  const heroImage = await fetchUnsplashImage('convenience store');
+
   const features = [
     {
       icon: Store,
@@ -67,6 +70,8 @@ export default function MicroMarketsPage() {
         description="Transform your breakroom into a modern unmanned pantry. Browse hundreds of products, grab what you need, and check out in seconds with our self-service micro market solutions."
         icon={Store}
         gradient="from-purple-900 to-purple-800"
+        backgroundImage={heroImage.success && heroImage.data ? heroImage.data.urls.regular : undefined}
+        imageAlt={heroImage.success && heroImage.data ? heroImage.data.alt_description || 'Micro Markets' : undefined}
       />
 
       {/* Service Overview */}

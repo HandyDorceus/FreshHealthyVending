@@ -4,6 +4,7 @@ import ServiceHero from '@/components/services/ServiceHero';
 import HighVolumeCallout from '@/components/services/HighVolumeCallout';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 import {
   Dumbbell,
   Zap,
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
     'Specialized vending for fitness facilities and gyms. Sports nutrition, protein supplements, energy drinks, and healthy refueling options for active Boston locations.',
 };
 
-export default function GymVendingPage() {
+export default async function GymVendingPage() {
+  const heroImage = await fetchUnsplashImage('gym fitness');
+
   const features = [
     {
       icon: Flame,
@@ -69,6 +72,8 @@ export default function GymVendingPage() {
         description="Specialized vending solutions for fitness facilities. Sports nutrition, protein supplements, and performance products that match your members' active lifestyles."
         icon={Dumbbell}
         gradient="from-red-900 to-orange-800"
+        backgroundImage={heroImage.success && heroImage.data ? heroImage.data.urls.regular : undefined}
+        imageAlt={heroImage.success && heroImage.data ? heroImage.data.alt_description || 'Gym & Fitness Vending' : undefined}
       />
 
       {/* Service Overview */}

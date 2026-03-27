@@ -10,6 +10,7 @@ interface ServiceCardProps {
   icon: LucideIcon;
   link: string;
   image?: string;
+  imageAlt?: string;
 }
 
 export default function ServiceCard({
@@ -17,14 +18,21 @@ export default function ServiceCard({
   description,
   icon: Icon,
   link,
-  image
+  image,
+  imageAlt
 }: ServiceCardProps) {
   return (
     <Card variant="elevated" className="h-full flex flex-col group hover:shadow-xl transition-all duration-300">
       {image && (
         <div className="relative h-48 overflow-hidden rounded-t-lg">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-            <Icon className="text-white opacity-20" size={80} />
+          <img
+            src={image}
+            alt={imageAlt || title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          <div className="absolute bottom-3 right-3 w-12 h-12 bg-white/90 rounded-lg flex items-center justify-center">
+            <Icon className="text-primary" size={24} />
           </div>
         </div>
       )}

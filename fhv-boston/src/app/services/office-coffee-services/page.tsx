@@ -4,6 +4,7 @@ import ServiceHero from '@/components/services/ServiceHero';
 import HighVolumeCallout from '@/components/services/HighVolumeCallout';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 import {
   Coffee,
   Droplet,
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
     'Professional office coffee services with pod-based and bean-to-cup solutions. High-volume coffee service for busy Boston offices with premium beans and regular restocking.',
 };
 
-export default function OfficeCoffeeServicesPage() {
+export default async function OfficeCoffeeServicesPage() {
+  const heroImage = await fetchUnsplashImage('coffee machine');
+
   const features = [
     {
       icon: Coffee,
@@ -67,6 +70,8 @@ export default function OfficeCoffeeServicesPage() {
         description="Elevate your workplace with premium coffee service. From pod-based convenience to bean-to-cup excellence, we deliver the perfect coffee solution for your office."
         icon={Coffee}
         gradient="from-amber-900 to-amber-800"
+        backgroundImage={heroImage.success && heroImage.data ? heroImage.data.urls.regular : undefined}
+        imageAlt={heroImage.success && heroImage.data ? heroImage.data.alt_description || 'Office Coffee Services' : undefined}
       />
 
       {/* Service Overview */}

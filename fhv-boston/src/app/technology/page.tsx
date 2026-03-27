@@ -16,6 +16,7 @@ import {
   Database,
   Bell
 } from 'lucide-react';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 
 export const metadata: Metadata = {
   title: 'Technology & Innovation | FHV Boston - Real-Time Tracking & Cashless Payments',
@@ -23,7 +24,8 @@ export const metadata: Metadata = {
     'Advanced vending technology with real-time inventory tracking, cashless payment systems, and data-driven restocking. Modern solutions for high-volume Boston locations.',
 };
 
-export default function TechnologyPage() {
+export default async function TechnologyPage() {
+  const heroImage = await fetchUnsplashImage('technology dashboard', 'landscape');
   const technologies = [
     {
       icon: BarChart3,
@@ -101,16 +103,28 @@ export default function TechnologyPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-br from-primary to-primary-dark text-white overflow-hidden">
+        {heroImage.success && heroImage.data && (
+          <>
+            <div className="absolute inset-0">
+              <img
+                src={heroImage.data.urls.regular}
+                alt={heroImage.data.alt_description || 'Technology dashboard'}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
+          </>
+        )}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
               <Zap size={40} className="text-white" />
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Cutting-Edge Vending Technology
             </h1>
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
+            <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
               Advanced systems that drive our high-volume specialization. Real-time tracking, cashless payments, and data-driven service that keeps your machines always stocked and always available.
             </p>
           </div>

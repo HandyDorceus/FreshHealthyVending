@@ -4,6 +4,7 @@ import ServiceHero from '@/components/services/ServiceHero';
 import HighVolumeCallout from '@/components/services/HighVolumeCallout';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 import {
   Package,
   CreditCard,
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
     'Full-service traditional vending machines for snacks and beverages. Specializing in high-volume locations across Greater Boston with real-time tracking and cashless payments.',
 };
 
-export default function TraditionalVendingPage() {
+export default async function TraditionalVendingPage() {
+  const heroImage = await fetchUnsplashImage('vending machine');
+
   const features = [
     {
       icon: Package,
@@ -67,6 +70,8 @@ export default function TraditionalVendingPage() {
         description="Premium snack and beverage vending solutions with cutting-edge technology. From high-volume locations to corporate offices, we deliver reliable service that keeps your team satisfied."
         icon={Package}
         gradient="from-blue-900 to-blue-800"
+        backgroundImage={heroImage.success && heroImage.data ? heroImage.data.urls.regular : undefined}
+        imageAlt={heroImage.success && heroImage.data ? heroImage.data.alt_description || 'Traditional Vending Services' : undefined}
       />
 
       {/* Service Overview */}

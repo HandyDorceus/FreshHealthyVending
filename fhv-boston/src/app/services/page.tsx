@@ -30,6 +30,8 @@ const services = [
     description:
       'Full-service vending machines with 500+ snack and beverage options. State-of-the-art equipment with cashless payment systems and guaranteed delivery technology.',
     link: '/services/traditional-vending',
+    image: 'https://images.unsplash.com/photo-1618506557292-ec1862b3c506?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVuZGluZyUyMG1hY2hpbmV8ZW58MHx8MHx8fDA%3D',
+    imageAlt: 'Traditional vending machine',
   },
   {
     icon: Salad,
@@ -37,6 +39,8 @@ const services = [
     description:
       'Refrigerated fresh food solutions with gourmet sandwiches, salads, and healthy meals. Daily restocking available for high-volume locations.',
     link: '/services/fresh-food-vending',
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900&auto=format&fit=crop&q=60',
+    imageAlt: 'Fresh healthy salad',
   },
   {
     icon: Coffee,
@@ -44,6 +48,8 @@ const services = [
     description:
       'Premium coffee solutions from pod-based systems to bean-to-cup brewers. Complete breakroom service with all supplies and maintenance included.',
     link: '/services/office-coffee-services',
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&auto=format&fit=crop&q=60',
+    imageAlt: 'Coffee cup and coffee beans',
   },
   {
     icon: Store,
@@ -51,6 +57,8 @@ const services = [
     description:
       'Modern unmanned pantry with self-checkout kiosks. Browse hundreds of products in an open market experience with 24/7 availability.',
     link: '/services/micro-markets',
+    image: 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=900&auto=format&fit=crop&q=60',
+    imageAlt: 'Convenience store shelves with products',
   },
   {
     icon: Heart,
@@ -58,6 +66,8 @@ const services = [
     description:
       'Dedicated wellness-focused vending with nutritious snacks and better-for-you options. Support your workplace health initiatives with curated healthy selections.',
     link: '/services/healthy-vending',
+    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=900&auto=format&fit=crop&q=60',
+    imageAlt: 'Fresh fruits and vegetables',
   },
   {
     icon: Dumbbell,
@@ -65,6 +75,8 @@ const services = [
     description:
       'Specialized vending for fitness facilities. Sports nutrition, protein supplements, and performance products designed for active lifestyles.',
     link: '/services/gym-vending',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&auto=format&fit=crop&q=60',
+    imageAlt: 'Gym fitness equipment',
   },
   {
     icon: Droplets,
@@ -72,6 +84,8 @@ const services = [
     description:
       'Professional water solutions with bottled delivery or bottle-less filtration systems. All equipment, maintenance, and regular service included.',
     link: '/services/water-services',
+    image: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=900&auto=format&fit=crop&q=60',
+    imageAlt: 'Water bottles and glass',
   },
 ];
 
@@ -112,7 +126,8 @@ export default function ServicesPage() {
                 description={service.description}
                 icon={service.icon}
                 link={service.link}
-                image="placeholder"
+                image={service.image}
+                imageAlt={service.imageAlt}
               />
             ))}
           </div>

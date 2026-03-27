@@ -4,6 +4,7 @@ import ServiceHero from '@/components/services/ServiceHero';
 import HighVolumeCallout from '@/components/services/HighVolumeCallout';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 import {
   Heart,
   Leaf,
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
     'Dedicated healthy vending solutions with nutritious snacks and better-for-you beverages. Wellness-focused vending for Boston workplaces promoting employee health.',
 };
 
-export default function HealthyVendingPage() {
+export default async function HealthyVendingPage() {
+  const heroImage = await fetchUnsplashImage('healthy food');
+
   const features = [
     {
       icon: Leaf,
@@ -69,6 +72,8 @@ export default function HealthyVendingPage() {
         description="Support workplace wellness with vending machines dedicated to nutritious, better-for-you options. From fresh fruit to protein-packed snacks, we make healthy choices convenient."
         icon={Heart}
         gradient="from-green-900 to-emerald-800"
+        backgroundImage={heroImage.success && heroImage.data ? heroImage.data.urls.regular : undefined}
+        imageAlt={heroImage.success && heroImage.data ? heroImage.data.alt_description || 'Healthy Vending Solutions' : undefined}
       />
 
       {/* Service Overview */}

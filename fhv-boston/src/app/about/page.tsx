@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const companyImage = 'https://images.unsplash.com/photo-1723242017539-39cd15eb75fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3JlYXRlciUyMGJvc3RvbnxlbnwwfHwwfHx8MA%3D%3D';
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -31,7 +32,7 @@ export default function AboutPage() {
       {/* Company Story */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
                 Our Story
@@ -39,27 +40,39 @@ export default function AboutPage() {
               <div className="w-20 h-1 bg-primary mx-auto"></div>
             </div>
 
-            <div className="prose prose-lg max-w-none text-slate-600 space-y-6">
-              <p className="text-lg leading-relaxed">
-                Fresh Healthy Vending Boston was founded with a simple mission: to
-                revolutionize the vending industry by providing healthier options
-                for hardworking professionals across the Boston area. We recognized
-                that traditional vending machines often lacked nutritious choices,
-                and we set out to change that.
-              </p>
-              <p className="text-lg leading-relaxed">
-                With over a decade of experience in the vending industry, we&apos;ve
-                built our reputation on reliability, quality, and exceptional
-                customer service. Our team is committed to understanding the unique
-                needs of each workplace we serve, ensuring that every vending
-                machine is stocked with products that your employees will love.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Today, we proudly serve hundreds of businesses throughout the
-                Greater Boston area, from small offices to large corporate
-                campuses. Our commitment to health, convenience, and customer
-                satisfaction continues to drive everything we do.
-              </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="prose prose-lg max-w-none text-slate-600 space-y-6">
+                <p className="text-lg leading-relaxed">
+                  Fresh Healthy Vending Boston was founded with a simple mission: to
+                  revolutionize the vending industry by providing healthier options
+                  for hardworking professionals across the Boston area. We recognized
+                  that traditional vending machines often lacked nutritious choices,
+                  and we set out to change that.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  With over a decade of experience in the vending industry, we&apos;ve
+                  built our reputation on reliability, quality, and exceptional
+                  customer service. Our team is committed to understanding the unique
+                  needs of each workplace we serve, ensuring that every vending
+                  machine is stocked with products that your employees will love.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Today, we proudly serve hundreds of businesses throughout the
+                  Greater Boston area, from small offices to large corporate
+                  campuses. Our commitment to health, convenience, and customer
+                  satisfaction continues to drive everything we do.
+                </p>
+              </div>
+
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src={companyImage}
+                    alt="Greater Boston skyline"
+                    className="w-full h-full object-cover aspect-[4/3]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

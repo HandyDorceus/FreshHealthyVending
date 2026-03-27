@@ -4,6 +4,7 @@ import ServiceHero from '@/components/services/ServiceHero';
 import HighVolumeCallout from '@/components/services/HighVolumeCallout';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { fetchUnsplashImage } from '@/lib/unsplash';
 import {
   Droplets,
   Recycle,
@@ -21,7 +22,9 @@ export const metadata: Metadata = {
     'Professional water dispenser services for Boston workplaces. Bottled water delivery and bottle-less filtration systems with regular service and maintenance included.',
 };
 
-export default function WaterServicesPage() {
+export default async function WaterServicesPage() {
+  const heroImage = await fetchUnsplashImage('water cooler');
+
   const features = [
     {
       icon: Droplets,
@@ -74,6 +77,8 @@ export default function WaterServicesPage() {
         description="Keep your workplace hydrated with professional water solutions. Choose bottled water delivery or eco-friendly bottle-less systems—both with full service and maintenance included."
         icon={Droplets}
         gradient="from-blue-900 to-cyan-800"
+        backgroundImage={heroImage.success && heroImage.data ? heroImage.data.urls.regular : undefined}
+        imageAlt={heroImage.success && heroImage.data ? heroImage.data.alt_description || 'Water Services' : undefined}
       />
 
       {/* Service Overview */}
