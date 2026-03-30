@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   Star,
 } from 'lucide-react';
+import { fetchUnsplashImages } from '@/lib/unsplash';
 
 export const metadata: Metadata = {
   title: 'Our Products',
@@ -23,11 +24,12 @@ export const metadata: Metadata = {
     'Explore our wide selection of healthy snacks, beverages, fresh meals, and traditional favorites. Fresh Healthy Vending Boston offers 100+ product options.',
 };
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const productCategoryImages = await fetchUnsplashImages('food variety', 4, 'squarish');
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -118,14 +120,25 @@ export default function ProductsPage() {
               },
             ].map((category, index) => {
               const Icon = category.icon;
+              const image = productCategoryImages.success && productCategoryImages.data?.[index];
               return (
-                <Card key={index} variant="elevated" className="h-full">
-                  <CardHeader>
-                    <div
-                      className={`w-20 h-20 ${category.color} rounded-2xl flex items-center justify-center mb-4 mx-auto`}
-                    >
-                      <Icon className="text-white" size={40} />
+                <Card key={index} variant="elevated" className="h-full overflow-hidden">
+                  {image && (
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={image.urls.small}
+                        alt={image.alt_description || category.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div
+                        className={`absolute bottom-3 left-3 w-14 h-14 ${category.color} rounded-xl flex items-center justify-center`}
+                      >
+                        <Icon className="text-white" size={28} />
+                      </div>
                     </div>
+                  )}
+                  <CardHeader>
                     <CardTitle className="text-2xl text-center">
                       {category.name}
                     </CardTitle>

@@ -3,8 +3,10 @@ import Button from '@/components/ui/Button';
 import { CheckCircle } from 'lucide-react';
 
 export default function Hero() {
+  // Using specific Unsplash image URL
+  const heroImageUrl = 'https://images.unsplash.com/photo-1599762427626-e11d2df73ed6?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-primary via-primary-dark to-primary text-white overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat"></div>
@@ -15,22 +17,20 @@ export default function Hero() {
           {/* Left Column - Content */}
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Fresh & Healthy Vending Solutions for{' '}
-              <span className="text-primary">Your Business</span>
+              High-Volume Vending Solutions for{' '}
+              <span className="text-secondary">Boston's Busiest Locations</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
-              Elevate your workplace with premium vending services. We provide
-              healthy snacks, beverages, and fresh food options that keep your
-              team energized and productive.
+              Real-time tracking. Data-driven restocking. From once a week to every day—we handle the volume.
             </p>
 
             {/* Key Benefits */}
             <ul className="space-y-4 mb-8">
               {[
-                'High-quality, healthy product selection',
-                'State-of-the-art vending equipment',
-                'Full-service maintenance & restocking',
-                'Customizable options for your workplace',
+                'Specialized in high-volume locations',
+                'Real-time inventory tracking drives restocking',
+                'Data-driven service, not route-based',
+                '500+ product options tailored to your location',
               ].map((benefit, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <CheckCircle className="text-primary flex-shrink-0 mt-1" size={20} />
@@ -47,7 +47,7 @@ export default function Hero() {
                 </Button>
               </Link>
               <Link href="/services">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
                   Our Services
                 </Button>
               </Link>
@@ -57,29 +57,32 @@ export default function Hero() {
           {/* Right Column - Image/Visual */}
           <div className="relative hidden lg:block">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              {/* Placeholder for vending machine image */}
-              <div className="aspect-[3/4] bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-6xl">🥗</span>
-                  </div>
-                  <p className="text-white/90 text-sm">
-                    Image placeholder: Modern vending machine with healthy options
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Stats Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white text-foreground p-6 rounded-xl shadow-xl">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">10+</span>
-                </div>
-                <div>
-                  <div className="font-bold text-lg">Years</div>
-                  <div className="text-sm text-slate-600">Experience</div>
-                </div>
+              <img
+                src={heroImageUrl}
+                alt="Modern vending machine with healthy snacks"
+                className="aspect-[3/4] object-cover w-full"
+              />
+              <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded">
+                <p className="text-xs text-white/80">
+                  Photo by{' '}
+                  <a
+                    href="https://unsplash.com/@timmossholder?utm_source=fhv-boston&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-white/90 underline font-medium"
+                  >
+                    Tim Mossholder
+                  </a>{' '}
+                  on{' '}
+                  <a
+                    href="https://unsplash.com/?utm_source=fhv-boston&utm_medium=referral"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-white/90 underline font-medium"
+                  >
+                    Unsplash
+                  </a>
+                </p>
               </div>
             </div>
           </div>

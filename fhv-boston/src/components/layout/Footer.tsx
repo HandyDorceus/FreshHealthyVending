@@ -1,23 +1,24 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-primary text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">FHV</span>
-              </div>
-              <div>
-                <div className="text-lg font-bold">Fresh Healthy Vending</div>
-                <div className="text-sm text-slate-400">Boston</div>
-              </div>
+            <div className="mb-4">
+              <Image
+                src="/fhv-logo.svg"
+                alt="Fresh Healthy Vending Boston"
+                width={140}
+                height={100}
+                className="h-14 w-auto"
+              />
             </div>
             <p className="text-sm text-slate-400 leading-relaxed">
               Providing high-quality, healthy vending solutions for businesses
@@ -115,21 +116,21 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href="#"
-                className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 bg-primary-dark rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 bg-primary-dark rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter size={20} />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 bg-primary-dark rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -139,7 +140,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800 mt-12 pt-8">
+        <div className="border-t border-primary-dark mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
             <p>
               &copy; {currentYear} Fresh Healthy Vending Boston. All rights

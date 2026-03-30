@@ -9,24 +9,32 @@ const productCategories = [
     name: 'Healthy Snacks',
     description: 'Nutritious options including nuts, fruit, granola bars, and more',
     color: 'bg-green-500',
+    image: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNuYWNrc3xlbnwwfHwwfHx8MA%3D%3D',
+    imageAlt: 'Healthy snacks and nuts',
   },
   {
     icon: Coffee,
     name: 'Beverages',
     description: 'Wide selection of drinks from water to coffee and energy drinks',
     color: 'bg-amber-500',
+    image: 'https://media.istockphoto.com/id/2231308417/photo/isotonic-drinks-in-vibrant-colors-and-enticing-flavors-providing-refreshing-hydration-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=RozH3yyqG79MuJF4_LDlPmW8ARM-HWRT8S6Yew--E-E=',
+    imageAlt: 'Energy drinks and beverages',
   },
   {
     icon: Salad,
     name: 'Fresh Meals',
     description: 'Ready-to-eat meals and salads for convenient lunch options',
     color: 'bg-emerald-500',
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&auto=format&fit=crop&q=60',
+    imageAlt: 'Fresh healthy salad bowl',
   },
   {
     icon: Candy,
     name: 'Traditional Favorites',
     description: 'Classic snacks and treats for variety and satisfaction',
     color: 'bg-pink-500',
+    image: 'https://plus.unsplash.com/premium_photo-1726676075271-d08aef815d79?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c25hY2tzfGVufDB8fDB8fHww',
+    imageAlt: 'Assorted snacks and treats',
   },
 ];
 
@@ -50,11 +58,21 @@ export default function ProductShowcase() {
           {productCategories.map((category, index) => {
             const Icon = category.icon;
             return (
-              <Card key={index} variant="bordered" className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className={`w-16 h-16 ${category.color} rounded-2xl flex items-center justify-center mb-4 mx-auto`}>
-                    <Icon className="text-white" size={32} />
+              <Card key={index} variant="bordered" className="hover:shadow-lg transition-shadow overflow-hidden">
+                {category.image && (
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <img
+                      src={category.image}
+                      alt={category.imageAlt}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className={`absolute bottom-3 left-3 w-12 h-12 ${category.color} rounded-xl flex items-center justify-center`}>
+                      <Icon className="text-white" size={24} />
+                    </div>
                   </div>
+                )}
+                <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-foreground text-center mb-2">
                     {category.name}
                   </h3>

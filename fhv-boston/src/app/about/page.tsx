@@ -11,10 +11,11 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const companyImage = 'https://images.unsplash.com/photo-1723242017539-39cd15eb75fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3JlYXRlciUyMGJvc3RvbnxlbnwwfHwwfHx8MA%3D%3D';
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -31,7 +32,7 @@ export default function AboutPage() {
       {/* Company Story */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
                 Our Story
@@ -39,27 +40,117 @@ export default function AboutPage() {
               <div className="w-20 h-1 bg-primary mx-auto"></div>
             </div>
 
-            <div className="prose prose-lg max-w-none text-slate-600 space-y-6">
-              <p className="text-lg leading-relaxed">
-                Fresh Healthy Vending Boston was founded with a simple mission: to
-                revolutionize the vending industry by providing healthier options
-                for hardworking professionals across the Boston area. We recognized
-                that traditional vending machines often lacked nutritious choices,
-                and we set out to change that.
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="prose prose-lg max-w-none text-slate-600 space-y-6">
+                <p className="text-lg leading-relaxed">
+                  Fresh Healthy Vending Boston was founded with a simple mission: to
+                  revolutionize the vending industry by providing healthier options
+                  for hardworking professionals across the Boston area. We recognized
+                  that traditional vending machines often lacked nutritious choices,
+                  and we set out to change that.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  With over a decade of experience in the vending industry, we&apos;ve
+                  built our reputation on reliability, quality, and exceptional
+                  customer service. Our team is committed to understanding the unique
+                  needs of each workplace we serve, ensuring that every vending
+                  machine is stocked with products that your employees will love.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Today, we proudly serve hundreds of businesses throughout the
+                  Greater Boston area, from small offices to large corporate
+                  campuses. Our commitment to health, convenience, and customer
+                  satisfaction continues to drive everything we do.
+                </p>
+              </div>
+
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src={companyImage}
+                    alt="Greater Boston skyline"
+                    className="w-full h-full object-cover aspect-[4/3]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Sets Us Apart */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                What Sets Us Apart
+              </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                We're not just another vending company. Our unique approach to high-volume service and data-driven operations delivers superior results.
               </p>
-              <p className="text-lg leading-relaxed">
-                With over a decade of experience in the vending industry, we&apos;ve
-                built our reputation on reliability, quality, and exceptional
-                customer service. Our team is committed to understanding the unique
-                needs of each workplace we serve, ensuring that every vending
-                machine is stocked with products that your employees will love.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Today, we proudly serve hundreds of businesses throughout the
-                Greater Boston area, from small offices to large corporate
-                campuses. Our commitment to health, convenience, and customer
-                satisfaction continues to drive everything we do.
-              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card variant="elevated">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <TrendingUp className="text-primary" size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">High-Volume Specialization</h3>
+                  <p className="text-slate-600 leading-relaxed mb-4">
+                    We thrive on high-volume locations. Busy offices, summer camps, healthcare facilities, corporate campuses—places where vending machines see heavy traffic and rapid turnover are where we excel.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    From once a week to every day, even multiple times per day—we're equipped to handle whatever volume your location demands.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card variant="elevated">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Target className="text-primary" size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Data-Driven, Not Route-Based</h3>
+                  <p className="text-slate-600 leading-relaxed mb-4">
+                    Unlike competitors who follow fixed routes regardless of need, our real-time inventory tracking tells us exactly when your machines need restocking.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    We don't restock on Tuesdays because "that's when we're in your area." We restock based on actual consumption data, ensuring machines stay full without wasted trips.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card variant="elevated">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Heart className="text-primary" size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Customer-First Philosophy</h3>
+                  <p className="text-slate-600 leading-relaxed mb-4">
+                    High communication and exceptional customer service aren't optional extras—they're fundamental to how we operate.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Monthly data sharing reports keep you informed. Individually tailored product mixes ensure your team gets what they actually want. If it's vendible, we can usually procure it.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card variant="elevated">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Award className="text-primary" size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Advanced Technology</h3>
+                  <p className="text-slate-600 leading-relaxed mb-4">
+                    State-of-the-art equipment manufactured in the USA. Cashless payment systems accepting credit, debit, contactless, and mobile payments.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Guaranteed Delivery Sensit Technology ensures customers get their product every time—or an automatic refund.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
@@ -140,19 +231,19 @@ export default function AboutPage() {
               <div className="space-y-6">
                 {[
                   {
-                    title: 'Extensive Product Selection',
+                    title: '500+ Product Options',
                     description:
-                      'Choose from over 100 healthy snacks, beverages, and fresh meal options tailored to your workplace.',
+                      'From traditional snacks to fresh food, healthy options to sports nutrition—we offer an extensive selection tailored to your location.',
                   },
                   {
-                    title: 'No Cost Equipment',
+                    title: 'Real-Time Inventory Tracking',
                     description:
-                      'We provide and install state-of-the-art vending machines at no charge to you.',
+                      'Proprietary systems monitor every sale, driving data-based restocking schedules that keep your machines fully stocked.',
                   },
                   {
-                    title: 'Full-Service Maintenance',
+                    title: 'High-Volume Expertise',
                     description:
-                      'Our team handles all servicing, cleaning, and repairs to keep your machines running smoothly.',
+                      'We specialize in locations with heavy traffic and high consumption. Daily restocking? Multiple visits per day? We handle it.',
                   },
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4">
@@ -170,19 +261,19 @@ export default function AboutPage() {
               <div className="space-y-6">
                 {[
                   {
-                    title: 'Flexible Restocking',
+                    title: 'No Cost Equipment',
                     description:
-                      'Regular delivery schedule customized to your consumption patterns ensures fresh products always.',
+                      'State-of-the-art USA-manufactured vending machines with cashless payment systems—provided at no charge to you.',
                   },
                   {
-                    title: 'Customizable Solutions',
+                    title: 'Individually Tailored Service',
                     description:
-                      'We work with you to select products that match your employees\' preferences and dietary needs.',
+                      'Custom product mix, flexible pricing options (commission or lower per-item pricing), and monthly data reports.',
                   },
                   {
-                    title: '24/7 Support',
+                    title: 'Full-Service Maintenance',
                     description:
-                      'Round-the-clock customer support to address any questions or concerns promptly.',
+                      'Complete servicing, cleaning, repairs, and 24/7 support—everything handled so you can focus on your business.',
                   },
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4">
