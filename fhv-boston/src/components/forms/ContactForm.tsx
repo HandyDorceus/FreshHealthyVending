@@ -71,33 +71,72 @@ export default function ContactForm() {
     }
   };
 
+  const handleSendAnother = () => {
+    setSubmitStatus('idle');
+    reset();
+  };
+
+  // Success State - Replace entire form with success message
+  if (submitStatus === 'success') {
+    return (
+      <div
+        className="w-full text-center py-12"
+        role="status"
+        aria-live="polite"
+      >
+        <div className="flex flex-col items-center max-w-md mx-auto">
+          {/* Success Icon */}
+          <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+            <CheckCircle className="text-primary" size={48} />
+          </div>
+
+          {/* Success Heading */}
+          <h3 className="text-3xl font-bold text-foreground mb-4">
+            Message Sent!
+          </h3>
+
+          {/* Success Message */}
+          <p className="text-lg text-slate-600 mb-8">
+            Thank you for reaching out. We&apos;ll get back to you shortly.
+          </p>
+
+          {/* Send Another Button */}
+          <Button
+            onClick={handleSendAnother}
+            size="lg"
+            variant="primary"
+            className="w-full sm:w-auto"
+          >
+            Send Another Message
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Form State - Show form with optional error banner
   return (
     <div className="w-full">
-      {submitStatus === 'success' && (
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
-          <CheckCircle className="text-green-600 flex-shrink-0 mt-0.5" size={20} />
-          <div>
-            <h4 className="font-semibold text-green-900 mb-1">
-              Message Sent Successfully!
-            </h4>
-            <p className="text-sm text-green-700">
-              Thank you for contacting us. We&apos;ll get back to you within 1-2
-              business days.
-            </p>
-          </div>
-        </div>
-      )}
-
+      {/* Error Banner - Only shows when there's an error */}
       {submitStatus === 'error' && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+        <div
+          className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3"
+          role="alert"
+          aria-live="assertive"
+        >
           <AlertCircle className="text-red-600 flex-shrink-0 mt-0.5" size={20} />
           <div>
             <h4 className="font-semibold text-red-900 mb-1">
-              Submission Failed
+              Something went wrong
             </h4>
             <p className="text-sm text-red-700">
-              There was an error sending your message. Please try again or contact
-              us directly at John@fhvboston.com.
+              Please try again or contact us directly at{' '}
+              <a
+                href="mailto:john@fhvboston.com"
+                className="underline hover:text-red-900 font-medium"
+              >
+                john@fhvboston.com
+              </a>
             </p>
           </div>
         </div>
@@ -111,6 +150,7 @@ export default function ContactForm() {
             error={errors.name?.message}
             placeholder="John Smith"
             required
+            disabled={isSubmitting}
           />
           <Input
             label="Email Address"
@@ -119,6 +159,7 @@ export default function ContactForm() {
             error={errors.email?.message}
             placeholder="john@example.com"
             required
+            disabled={isSubmitting}
           />
         </div>
 
@@ -129,6 +170,7 @@ export default function ContactForm() {
             {...register('phone')}
             error={errors.phone?.message}
             placeholder="(123) 456-7890"
+            disabled={isSubmitting}
           />
           <Input
             label="Company Name"
@@ -136,6 +178,7 @@ export default function ContactForm() {
             error={errors.company?.message}
             placeholder="Acme Corporation"
             required
+            disabled={isSubmitting}
           />
         </div>
 
@@ -145,6 +188,7 @@ export default function ContactForm() {
           error={errors.serviceInterest?.message}
           options={serviceOptions}
           required
+          disabled={isSubmitting}
         />
 
         <Textarea
@@ -154,6 +198,7 @@ export default function ContactForm() {
           placeholder="Tell us about your vending needs..."
           rows={6}
           required
+          disabled={isSubmitting}
         />
 
         <Button

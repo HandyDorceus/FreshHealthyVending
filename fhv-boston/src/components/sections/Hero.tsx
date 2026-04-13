@@ -66,7 +66,7 @@ export default function Hero() {
                 <p className="text-xs text-white/80">
                   Photo by{' '}
                   <a
-                    href="https://unsplash.com/@timmossholder?utm_source=fhv-boston&utm_medium=referral"
+                    href="https://unsplash.com/@timmossholder?utm_source=fresh_healthy_vending_boston&utm_medium=referral"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-white/90 underline font-medium"
@@ -75,7 +75,7 @@ export default function Hero() {
                   </a>{' '}
                   on{' '}
                   <a
-                    href="https://unsplash.com/?utm_source=fhv-boston&utm_medium=referral"
+                    href="https://unsplash.com/?utm_source=fresh_healthy_vending_boston&utm_medium=referral"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-white/90 underline font-medium"

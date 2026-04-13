@@ -90,6 +90,14 @@ export async function fetchUnsplashImage(
 
     const photo: UnsplashImage = await response.json();
 
+    // Trigger download event for API compliance
+    // Note: Our site generates and displays images automatically via server-side rendering.
+    // While Unsplash primarily requires this for user-selected images, we trigger it
+    // for all fetched images to ensure full compliance with their API guidelines.
+    if (photo.links?.download_location) {
+      await triggerUnsplashDownload(photo.links.download_location);
+    }
+
     return {
       success: true,
       data: photo,
@@ -155,6 +163,18 @@ export async function fetchUnsplashImages(
     }
 
     const photos: UnsplashImage[] = await response.json();
+
+    // Trigger download event for each photo for API compliance
+    // Note: Our site generates and displays images automatically via server-side rendering.
+    // While Unsplash primarily requires this for user-selected images, we trigger it
+    // for all fetched images to ensure full compliance with their API guidelines.
+    await Promise.all(
+      photos.map(photo =>
+        photo.links?.download_location
+          ? triggerUnsplashDownload(photo.links.download_location)
+          : Promise.resolve()
+      )
+    );
 
     return {
       success: true,
@@ -226,6 +246,18 @@ export async function searchUnsplashImages(
 
     const photos = await response.json();
     const results = Array.isArray(photos) ? photos : [photos];
+
+    // Trigger download event for each photo for API compliance
+    // Note: Our site generates and displays images automatically via server-side rendering.
+    // While Unsplash primarily requires this for user-selected images, we trigger it
+    // for all fetched images to ensure full compliance with their API guidelines.
+    await Promise.all(
+      results.map(photo =>
+        photo.links?.download_location
+          ? triggerUnsplashDownload(photo.links.download_location)
+          : Promise.resolve()
+      )
+    );
 
     return {
       success: true,
@@ -310,8 +342,8 @@ export function getUnsplashAttribution(image: UnsplashImage): string {
  */
 export function getUnsplashAttributionLink(image: UnsplashImage) {
   return {
-    photographerUrl: `${image.user.links.html}?utm_source=fhv-boston&utm_medium=referral`,
-    unsplashUrl: `https://unsplash.com/?utm_source=fhv-boston&utm_medium=referral`,
-    photoUrl: `${image.links.html}?utm_source=fhv-boston&utm_medium=referral`,
+    photographerUrl: `https://unsplash.com/@${image.user.username}?utm_source=fresh_healthy_vending_boston&utm_medium=referral`,
+    unsplashUrl: `https://unsplash.com/?utm_source=fresh_healthy_vending_boston&utm_medium=referral`,
+    photoUrl: `${image.links.html}?utm_source=fresh_healthy_vending_boston&utm_medium=referral`,
   };
 }

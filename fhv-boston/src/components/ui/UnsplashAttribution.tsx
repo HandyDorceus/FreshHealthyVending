@@ -39,7 +39,7 @@ export default function UnsplashAttribution({
     <p className={`text-xs ${textColor} ${className}`}>
       Photo by{' '}
       <a
-        href={`${image.user.links.html}?utm_source=fhv-boston&utm_medium=referral`}
+        href={`https://unsplash.com/@${image.user.username}?utm_source=fresh_healthy_vending_boston&utm_medium=referral`}
         target="_blank"
         rel="noopener noreferrer"
         className={`${linkColor} underline font-medium`}
@@ -48,7 +48,7 @@ export default function UnsplashAttribution({
       </a>{' '}
       on{' '}
       <a
-        href="https://unsplash.com/?utm_source=fhv-boston&utm_medium=referral"
+        href="https://unsplash.com/?utm_source=fresh_healthy_vending_boston&utm_medium=referral"
         target="_blank"
         rel="noopener noreferrer"
         className={`${linkColor} underline font-medium`}
