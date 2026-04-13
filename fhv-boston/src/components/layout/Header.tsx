@@ -42,9 +42,9 @@ export default function Header() {
             <Image
               src="/fhv-logo.svg"
               alt="Fresh Healthy Vending Boston"
-              width={140}
-              height={100}
-              className="h-16 w-auto"
+              width={210}
+              height={150}
+              className="h-24 w-auto"
               priority
             />
           </Link>
