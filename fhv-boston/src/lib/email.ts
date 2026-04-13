@@ -23,23 +23,30 @@ export interface RefundFormData {
 }
 
 export async function sendContactEmail(data: ContactFormData) {
+  const timestamp = new Date().toLocaleString('en-US', {
+    dateStyle: 'full',
+    timeStyle: 'long',
+  });
+
   const emailHtml = `
     <h2>New Contact Form Submission</h2>
-    <p><strong>Name:</strong> ${data.name}</p>
-    <p><strong>Email:</strong> ${data.email}</p>
-    ${data.phone ? `<p><strong>Phone:</strong> ${data.phone}</p>` : ''}
-    <p><strong>Company:</strong> ${data.company}</p>
+    <p><strong>Submitter Name:</strong> ${data.name}</p>
+    <p><strong>Submitter Email:</strong> ${data.email}</p>
+    ${data.phone ? `<p><strong>Submitter Phone:</strong> ${data.phone}</p>` : ''}
+    <p><strong>Company/Organization:</strong> ${data.company}</p>
     <p><strong>Service Interest:</strong> ${data.serviceInterest}</p>
     <p><strong>Message:</strong></p>
     <p>${data.message.replace(/\n/g, '<br>')}</p>
+    <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+    <p><strong>Timestamp:</strong> ${timestamp}</p>
   `;
 
   try {
     const result = await resend.emails.send({
       from: 'FHV Boston Website <noreply@fhvboston.com>',
-      to: process.env.CONTACT_EMAIL || 'John@fhvboston.com',
+      to: 'john@fhvboston.com',
       replyTo: data.email,
-      subject: `New Contact Form: ${data.company}`,
+      subject: `[Contact Request] – ${data.name}`,
       html: emailHtml,
     });
 
@@ -51,24 +58,31 @@ export async function sendContactEmail(data: ContactFormData) {
 }
 
 export async function sendRefundEmail(data: RefundFormData) {
+  const timestamp = new Date().toLocaleString('en-US', {
+    dateStyle: 'full',
+    timeStyle: 'long',
+  });
+
   const emailHtml = `
-    <h2>New Refund Request</h2>
-    <p><strong>Customer Name:</strong> ${data.name}</p>
-    <p><strong>Email:</strong> ${data.email}</p>
-    <p><strong>Phone:</strong> ${data.phone}</p>
-    <p><strong>Machine Location/ID:</strong> ${data.machineLocation}</p>
-    <p><strong>Transaction Date:</strong> ${data.transactionDate}</p>
-    <p><strong>Amount:</strong> $${data.amount}</p>
-    <p><strong>Reason:</strong></p>
+    <h2>New Refund Request Submission</h2>
+    <p><strong>Submitter Name:</strong> ${data.name}</p>
+    <p><strong>Submitter Email:</strong> ${data.email}</p>
+    <p><strong>Submitter Phone:</strong> ${data.phone}</p>
+    <p><strong>Location/Machine ID:</strong> ${data.machineLocation}</p>
+    <p><strong>Purchase Date:</strong> ${data.transactionDate}</p>
+    <p><strong>Amount Requested:</strong> $${data.amount}</p>
+    <p><strong>Description of Issue:</strong></p>
     <p>${data.reason.replace(/\n/g, '<br>')}</p>
+    <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+    <p><strong>Timestamp:</strong> ${timestamp}</p>
   `;
 
   try {
     const result = await resend.emails.send({
       from: 'FHV Boston Website <noreply@fhvboston.com>',
-      to: process.env.CONTACT_EMAIL || 'John@fhvboston.com',
+      to: 'john@fhvboston.com',
       replyTo: data.email,
-      subject: `Refund Request - ${data.name} - $${data.amount}`,
+      subject: `[Refund Request] – ${data.name}`,
       html: emailHtml,
     });
 
