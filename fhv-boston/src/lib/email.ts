@@ -1,7 +1,8 @@
 import { Resend } from 'resend';
 
-// Initialize Resend with API key or empty string for build time
-const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder');
+// Initialize Resend instances with separate API keys
+const resendContact = new Resend(process.env.RESEND_CONTACT_API_KEY || 're_placeholder');
+const resendRefund = new Resend(process.env.RESEND_REFUND_API_KEY || 're_placeholder');
 
 export interface ContactFormData {
   name: string;
@@ -42,7 +43,7 @@ export async function sendContactEmail(data: ContactFormData) {
   `;
 
   try {
-    const result = await resend.emails.send({
+    const result = await resendContact.emails.send({
       from: 'FHV Boston Website <noreply@fhvboston.com>',
       to: 'john@fhvboston.com',
       replyTo: data.email,
@@ -78,7 +79,7 @@ export async function sendRefundEmail(data: RefundFormData) {
   `;
 
   try {
-    const result = await resend.emails.send({
+    const result = await resendRefund.emails.send({
       from: 'FHV Boston Website <noreply@fhvboston.com>',
       to: 'john@fhvboston.com',
       replyTo: data.email,
@@ -112,7 +113,10 @@ export async function sendConfirmationEmail(to: string, type: 'contact' | 'refun
   `;
 
   try {
-    const result = await resend.emails.send({
+    // Use the appropriate Resend instance based on type
+    const resendInstance = type === 'contact' ? resendContact : resendRefund;
+
+    const result = await resendInstance.emails.send({
       from: 'FHV Boston <noreply@fhvboston.com>',
       to,
       subject,
