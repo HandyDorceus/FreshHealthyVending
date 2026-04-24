@@ -30,7 +30,7 @@ const services = [
     description:
       'Full-service vending machines with 500+ snack and beverage options. State-of-the-art equipment with cashless payment systems and guaranteed delivery technology.',
     link: '/services/traditional-vending',
-    image: 'https://images.unsplash.com/photo-1618506557292-ec1862b3c506?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVuZGluZyUyMG1hY2hpbmV8ZW58MHx8MHx8fDA%3D',
+    image: '/traditional-vending.png',
     imageAlt: 'Traditional vending machine',
   },
   {
@@ -57,8 +57,8 @@ const services = [
     description:
       'Modern unmanned pantry with self-checkout kiosks. Browse hundreds of products in an open market experience with 24/7 availability.',
     link: '/services/micro-markets',
-    image: 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=900&auto=format&fit=crop&q=60',
-    imageAlt: 'Convenience store shelves with products',
+    image: 'https://afvusa.com/blog/wp-content/uploads/2024/08/SPB04549-scaled.jpg',
+    imageAlt: 'Micro market with open shelves and self-checkout kiosk',
   },
   {
     icon: Heart,

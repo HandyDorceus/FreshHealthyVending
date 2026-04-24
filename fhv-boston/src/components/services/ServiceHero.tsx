@@ -28,7 +28,7 @@ export default function ServiceHero({
               className="w-full h-full object-cover"
             />
           </div>
-          <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-90`}></div>
+          <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-65`}></div>
         </>
       )}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

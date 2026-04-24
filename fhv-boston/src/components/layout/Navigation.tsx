@@ -17,12 +17,10 @@ const serviceLinks = [
 ];
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services', hasDropdown: true },
   { href: '/technology', label: 'Technology' },
   { href: '/contact', label: 'Contact' },
-  { href: '/refund', label: 'Refund Portal' },
 ];
 
 export default function Navigation() {

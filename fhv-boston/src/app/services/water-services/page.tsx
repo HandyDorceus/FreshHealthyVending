@@ -77,8 +77,8 @@ export default async function WaterServicesPage() {
         description="Keep your workplace hydrated with professional water solutions. Choose bottled water delivery or eco-friendly bottle-less systems—both with full service and maintenance included."
         icon={Droplets}
         gradient="from-blue-900 to-cyan-800"
-        backgroundImage={heroImage.success && heroImage.data ? heroImage.data.urls.regular : undefined}
-        imageAlt={heroImage.success && heroImage.data ? heroImage.data.alt_description || 'Water Services' : undefined}
+        backgroundImage="https://images.unsplash.com/photo-1561041695-d2fadf9f318c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8d2F0ZXIlMjBib3R0bGVzfGVufDB8fDB8fHww"
+        imageAlt="Water bottles"
       />
 
       {/* Service Overview */}

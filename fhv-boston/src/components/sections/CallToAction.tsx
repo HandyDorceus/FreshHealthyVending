@@ -32,12 +32,12 @@ export default function CallToAction() {
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </Link>
-            <Link href="tel:+1234567890">
+            <Link href="tel:+16176205241">
               <Button
                 size="lg"
                 className="bg-white text-primary hover:bg-slate-100 min-w-[200px]"
               >
-                Call: (123) 456-7890
+                Call: (617) 620-5241
               </Button>
             </Link>
           </div>

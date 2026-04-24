@@ -19,12 +19,12 @@ export default function Header() {
               <span>John@fhvboston.com</span>
             </a>
             <a
-              href="tel:+1234567890"
+              href="tel:+16176205241"
               className="flex items-center gap-2 hover:text-primary transition-colors"
               aria-label="Call us"
             >
               <Phone size={16} />
-              <span>(123) 456-7890</span>
+              <span>(617) 620-5241</span>
             </a>
           </div>
         </div>

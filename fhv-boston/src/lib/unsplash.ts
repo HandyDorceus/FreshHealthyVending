@@ -69,9 +69,7 @@ export async function fetchUnsplashImage(
     }
 
     const params = new URLSearchParams({
-      // Note: Demo Unsplash API keys don't support query parameters
-      // To enable search, apply for Production access at https://unsplash.com/oauth/applications
-      // query,
+      query,
       client_id: UNSPLASH_API_KEY,
       ...(orientation && { orientation }),
     });

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -90,10 +90,10 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Phone size={18} className="text-primary mt-1 flex-shrink-0" />
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+16176205241"
                   className="text-sm text-slate-400 hover:text-primary transition-colors"
                 >
-                  (123) 456-7890
+                  (617) 620-5241
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -115,7 +115,9 @@ export default function Footer() {
             </div>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.facebook.com/FHVBoston"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-primary-dark rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Facebook"
               >
@@ -124,16 +126,16 @@ export default function Footer() {
               <a
                 href="#"
                 className="w-10 h-10 bg-primary-dark rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="Twitter"
+                aria-label="Instagram"
               >
-                <Twitter size={20} />
+                <Instagram size={20} />
               </a>
               <a
                 href="#"
                 className="w-10 h-10 bg-primary-dark rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="LinkedIn"
+                aria-label="X (Twitter)"
               >
-                <Linkedin size={20} />
+                <Twitter size={20} />
               </a>
             </div>
           </div>
