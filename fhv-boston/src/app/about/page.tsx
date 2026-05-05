@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ClientsSection from '@/components/ClientsSection';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
@@ -313,6 +314,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <ClientsSection />
 
       {/* CTA Section */}
       <section className="py-20">
