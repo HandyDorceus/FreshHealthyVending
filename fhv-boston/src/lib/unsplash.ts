@@ -38,7 +38,7 @@ export interface UnsplashApiResponse<T> {
   error?: string;
 }
 
-const UNSPLASH_API_KEY = process.env.UNSPLASH_ACCESS_KEY;
+const UNSPLASH_API_KEY = process.env.UNSPLASH_ACCESS_KEY?.trim();
 const UNSPLASH_API_BASE = 'https://api.unsplash.com';
 
 /**
