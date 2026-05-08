@@ -31,15 +31,14 @@ export default function ServiceCard({
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-          <div className="absolute bottom-3 right-3 w-12 h-12 bg-white/90 rounded-lg flex items-center justify-center">
-            <Icon className="text-primary" size={24} />
-          </div>
         </div>
       )}
       <CardHeader>
-        <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-          <Icon className="text-primary" size={28} />
-        </div>
+        {!image && (
+          <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <Icon className="text-primary" size={28} />
+          </div>
+        )}
         <CardTitle className="text-xl">{title}</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col">

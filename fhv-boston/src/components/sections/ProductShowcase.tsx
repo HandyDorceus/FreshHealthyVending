@@ -67,9 +67,6 @@ export default function ProductShowcase() {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className={`absolute bottom-3 left-3 w-12 h-12 ${category.color} rounded-xl flex items-center justify-center`}>
-                      <Icon className="text-white" size={24} />
-                    </div>
                   </div>
                 )}
                 <CardContent className="p-6">

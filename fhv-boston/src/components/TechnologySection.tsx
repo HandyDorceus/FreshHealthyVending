@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const stats = [
   { value: '15–35%', label: 'Reduction in labor' },
@@ -32,7 +33,7 @@ export default function TechnologySection() {
             </p>
 
             {/* Stat callouts */}
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:divide-x sm:divide-border">
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:divide-x sm:divide-border mb-10">
               {stats.map((stat) => (
                 <div key={stat.value} className="sm:px-6 first:pl-0 last:pr-0">
                   <div className="text-3xl font-bold text-secondary leading-none mb-1">
@@ -44,6 +45,14 @@ export default function TechnologySection() {
                 </div>
               ))}
             </div>
+
+            <Link
+              href="/technology"
+              className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+            >
+              See How Our Technology Works
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </Link>
           </div>
 
           {/* Right column: device image */}

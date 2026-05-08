@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -144,6 +145,16 @@ export default async function TechnologyPage() {
             <p className="text-lg text-slate-600 leading-relaxed">
               <strong className="text-foreground">We're different.</strong> Our real-time tracking tells us exactly when your machines need restocking. If you're a high-volume location running through products quickly, we come more often. If you're slower-paced, we adjust accordingly. It's efficient for us and better for you.
             </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto mb-12">
+            <Image
+              src="/vagabond-device-quad.jpeg"
+              alt="Vagabond vending management software shown across phone, tablet, and laptop"
+              width={1080}
+              height={810}
+              className="rounded-2xl shadow-xl w-full object-cover"
+            />
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
